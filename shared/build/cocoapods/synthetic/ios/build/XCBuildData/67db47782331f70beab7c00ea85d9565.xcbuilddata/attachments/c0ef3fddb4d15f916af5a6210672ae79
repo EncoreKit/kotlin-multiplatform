@@ -1,0 +1,10 @@
+framework module EncoreKMPBridge {
+  umbrella header "EncoreKMPBridge-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module EncoreKMPBridge.__Swift {
+  exclude header "EncoreKMPBridge-Swift.h"
+}

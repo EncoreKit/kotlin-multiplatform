@@ -1,0 +1,18 @@
+{
+  "" : {
+    "diagnostics" : "/Users/ryanlong/Documents/projects/encore-mono/kotlin-multiplatform/shared/build/cocoapods/synthetic/ios/build/Pods.build/Debug-iphonesimulator/EncoreKMPBridge.build/Objects-normal/x86_64/EncoreKMPBridge-master.dia",
+    "emit-module-dependencies" : "/Users/ryanlong/Documents/projects/encore-mono/kotlin-multiplatform/shared/build/cocoapods/synthetic/ios/build/Pods.build/Debug-iphonesimulator/EncoreKMPBridge.build/Objects-normal/x86_64/EncoreKMPBridge-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/ryanlong/Documents/projects/encore-mono/kotlin-multiplatform/shared/build/cocoapods/synthetic/ios/build/Pods.build/Debug-iphonesimulator/EncoreKMPBridge.build/Objects-normal/x86_64/EncoreKMPBridge-master-emit-module.dia",
+    "swift-dependencies" : "/Users/ryanlong/Documents/projects/encore-mono/kotlin-multiplatform/shared/build/cocoapods/synthetic/ios/build/Pods.build/Debug-iphonesimulator/EncoreKMPBridge.build/Objects-normal/x86_64/EncoreKMPBridge-master.swiftdeps"
+  },
+  "/Users/ryanlong/Documents/projects/encore-mono/kotlin-multiplatform/iosHelper/EncoreKMPBridge.swift" : {
+    "const-values" : "/Users/ryanlong/Documents/projects/encore-mono/kotlin-multiplatform/shared/build/cocoapods/synthetic/ios/build/Pods.build/Debug-iphonesimulator/EncoreKMPBridge.build/Objects-normal/x86_64/EncoreKMPBridge.swiftconstvalues",
+    "dependencies" : "/Users/ryanlong/Documents/projects/encore-mono/kotlin-multiplatform/shared/build/cocoapods/synthetic/ios/build/Pods.build/Debug-iphonesimulator/EncoreKMPBridge.build/Objects-normal/x86_64/EncoreKMPBridge.d",
+    "diagnostics" : "/Users/ryanlong/Documents/projects/encore-mono/kotlin-multiplatform/shared/build/cocoapods/synthetic/ios/build/Pods.build/Debug-iphonesimulator/EncoreKMPBridge.build/Objects-normal/x86_64/EncoreKMPBridge.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/EncoreKMPBridge.build/Objects-normal/x86_64/EncoreKMPBridge.o",
+    "llvm-bc" : "/Users/ryanlong/Documents/projects/encore-mono/kotlin-multiplatform/shared/build/cocoapods/synthetic/ios/build/Pods.build/Debug-iphonesimulator/EncoreKMPBridge.build/Objects-normal/x86_64/EncoreKMPBridge.bc",
+    "object" : "/Users/ryanlong/Documents/projects/encore-mono/kotlin-multiplatform/shared/build/cocoapods/synthetic/ios/build/Pods.build/Debug-iphonesimulator/EncoreKMPBridge.build/Objects-normal/x86_64/EncoreKMPBridge.o",
+    "swift-dependencies" : "/Users/ryanlong/Documents/projects/encore-mono/kotlin-multiplatform/shared/build/cocoapods/synthetic/ios/build/Pods.build/Debug-iphonesimulator/EncoreKMPBridge.build/Objects-normal/x86_64/EncoreKMPBridge.swiftdeps",
+    "swiftmodule" : "/Users/ryanlong/Documents/projects/encore-mono/kotlin-multiplatform/shared/build/cocoapods/synthetic/ios/build/Pods.build/Debug-iphonesimulator/EncoreKMPBridge.build/Objects-normal/x86_64/EncoreKMPBridge~partial.swiftmodule"
+  }
+}

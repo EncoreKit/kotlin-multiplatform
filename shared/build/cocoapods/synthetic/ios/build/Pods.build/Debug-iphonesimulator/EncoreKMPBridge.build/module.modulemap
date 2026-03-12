@@ -1,0 +1,11 @@
+framework module EncoreKMPBridge {
+  umbrella header "EncoreKMPBridge-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module EncoreKMPBridge.Swift {
+  header "EncoreKMPBridge-Swift.h"
+  requires objc
+}

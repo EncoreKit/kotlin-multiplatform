@@ -1,0 +1,24 @@
+PODS:
+  - EncoreKit (1.4.36)
+  - EncoreKMPBridge (0.1.0):
+    - EncoreKit (~> 1.4)
+
+DEPENDENCIES:
+  - EncoreKit (~> 1.4)
+  - EncoreKMPBridge (from `/Users/ryanlong/Documents/projects/encore-mono/kotlin-multiplatform/iosHelper`)
+
+SPEC REPOS:
+  trunk:
+    - EncoreKit
+
+EXTERNAL SOURCES:
+  EncoreKMPBridge:
+    :path: "/Users/ryanlong/Documents/projects/encore-mono/kotlin-multiplatform/iosHelper"
+
+SPEC CHECKSUMS:
+  EncoreKit: f615fa1d1e033b061ece5a025eb1980a083b1bd2
+  EncoreKMPBridge: 0af0ff04aba3de2047fc4f68bfc6021c664f4733
+
+PODFILE CHECKSUM: bbb04adbef38f2dc9570e96081ad58bc5e73fc49
+
+COCOAPODS: 1.16.2

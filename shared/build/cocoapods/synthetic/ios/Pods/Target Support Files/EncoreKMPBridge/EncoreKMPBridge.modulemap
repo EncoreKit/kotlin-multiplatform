@@ -1,0 +1,6 @@
+framework module EncoreKMPBridge {
+  umbrella header "EncoreKMPBridge-umbrella.h"
+
+  export *
+  module * { export * }
+}
