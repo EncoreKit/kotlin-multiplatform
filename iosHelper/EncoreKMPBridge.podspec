@@ -12,5 +12,5 @@ Pod::Spec.new do |s|
 
   s.source_files = '*.swift'
 
-  s.dependency 'EncoreKit', '~> 1.4'
+  s.dependency 'EncoreKit', '1.4.36'
 end

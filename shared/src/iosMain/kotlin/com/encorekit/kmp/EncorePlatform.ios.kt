@@ -3,11 +3,13 @@ package com.encorekit.kmp
 import cocoapods.EncoreKMPBridge.EncoreKMPBridge
 import com.encorekit.kmp.models.BillingPurchaseResult
 import com.encorekit.kmp.models.LogLevel
+import com.encorekit.kmp.models.NotGrantedReason
 import com.encorekit.kmp.models.PresentationResult
 import com.encorekit.kmp.models.PurchaseRequest
 import com.encorekit.kmp.models.UserAttributes
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlin.coroutines.resume
@@ -15,6 +17,7 @@ import kotlin.coroutines.resume
 internal actual class EncorePlatform actual constructor() {
 
     private val bridge = EncoreKMPBridge.shared()
+    private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Main)
 
     actual val placements: EncorePlacements = EncorePlacements()
 
@@ -46,9 +49,9 @@ internal actual class EncorePlatform actual constructor() {
                 val result = when (status) {
                     "granted" -> PresentationResult.Granted()
                     "notGranted" -> PresentationResult.NotGranted(
-                        reason = reason ?: error ?: "unknown"
+                        reason = parseNotGrantedReason(reason ?: error),
                     )
-                    else -> PresentationResult.NotGranted(reason = "unknown")
+                    else -> PresentationResult.NotGranted(reason = NotGrantedReason.UNKNOWN)
                 }
                 continuation.resume(result)
             }
@@ -63,10 +66,13 @@ internal actual class EncorePlatform actual constructor() {
                 placementId = placementId,
                 promoOfferId = promoOfferId,
             )
-            // Launch the suspend handler on the main dispatcher
-            CoroutineScope(Dispatchers.Main).launch {
-                handler(request)
-                bridge.completePurchaseRequestWithSuccess(true)
+            scope.launch {
+                try {
+                    handler(request)
+                    bridge.completePurchaseRequestWithSuccess(true)
+                } catch (_: Exception) {
+                    bridge.completePurchaseRequestWithSuccess(false)
+                }
             }
         }
     }
@@ -77,7 +83,7 @@ internal actual class EncorePlatform actual constructor() {
                 productId = productId ?: "",
                 transactionId = transactionId,
             )
-            CoroutineScope(Dispatchers.Main).launch {
+            scope.launch {
                 handler(result, productId ?: "")
             }
         }
@@ -91,6 +97,13 @@ internal actual class EncorePlatform actual constructor() {
 }
 
 // -- Mappers --
+
+private fun parseNotGrantedReason(value: String?): NotGrantedReason = when (value) {
+    "user_closed" -> NotGrantedReason.USER_CLOSED
+    "no_offer_available" -> NotGrantedReason.NO_OFFERS
+    "error" -> NotGrantedReason.ERROR
+    else -> NotGrantedReason.UNKNOWN
+}
 
 private fun UserAttributes.toMap(): Map<Any?, Any?> = buildMap<Any?, Any?> {
     email?.let { put("email", it) }

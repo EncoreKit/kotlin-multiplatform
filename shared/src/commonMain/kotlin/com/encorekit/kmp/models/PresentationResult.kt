@@ -9,6 +9,13 @@ sealed class PresentationResult {
 
     /** User was not granted an offer. */
     data class NotGranted(
-        val reason: String,
+        val reason: NotGrantedReason,
     ) : PresentationResult()
+}
+
+enum class NotGrantedReason(val value: String) {
+    USER_CLOSED("user_closed"),
+    NO_OFFERS("no_offer_available"),
+    ERROR("error"),
+    UNKNOWN("unknown"),
 }

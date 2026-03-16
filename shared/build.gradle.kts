@@ -43,7 +43,7 @@ kotlin {
         // Native iOS SDK — linked as transitive dependency of EncoreKMPBridge.
         // linkOnly skips cinterop (Kotlin code imports EncoreKMPBridge, not EncoreKit directly).
         pod("EncoreKit") {
-            version = "~> 1.4"
+            version = "1.4.36"
             linkOnly = true
         }
 

@@ -2,23 +2,18 @@ package com.encorekit.kmp
 
 import android.app.Activity
 import android.content.Context
+import android.util.Log
 import com.encorekit.kmp.models.BillingPurchaseResult
 import com.encorekit.kmp.models.LogLevel
+import com.encorekit.kmp.models.NotGrantedReason
 import com.encorekit.kmp.models.PresentationResult
 import com.encorekit.kmp.models.PurchaseRequest
 import com.encorekit.kmp.models.UserAttributes
 import com.encorekit.encore.Encore as NativeEncore
-import kotlinx.coroutines.CancellableContinuation
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.SupervisorJob
-import kotlinx.coroutines.launch
-import java.util.UUID
 
 internal actual class EncorePlatform actual constructor() {
 
     private val native = NativeEncore.shared
-    private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Main)
 
     @Volatile
     internal var activity: Activity? = null
@@ -33,7 +28,7 @@ internal actual class EncorePlatform actual constructor() {
     actual fun configure(apiKey: String, logLevel: LogLevel) {
         val ctx = context
         if (ctx == null) {
-            println("[Encore KMP] configure(apiKey) called without Context. Use Encore.configure(context, apiKey) on Android.")
+            Log.e("EncoreKMP", "configure(apiKey) called without Context. Use Encore.configure(context, apiKey) on Android.")
             return
         }
         native.configure(ctx, apiKey, logLevel.toNative())
@@ -63,10 +58,9 @@ internal actual class EncorePlatform actual constructor() {
     actual suspend fun show(placementId: String?): PresentationResult {
         val act = activity
         if (act == null) {
-            return PresentationResult.NotGranted(reason = "no_activity")
+            return PresentationResult.NotGranted(reason = NotGrantedReason.ERROR)
         }
-        val id = placementId ?: "placement_${UUID.randomUUID().toString().take(8)}"
-        val nativeResult = native.placement(id).show(act)
+        val nativeResult = native.placement(placementId).show(act)
         return nativeResult.toCommon()
     }
 

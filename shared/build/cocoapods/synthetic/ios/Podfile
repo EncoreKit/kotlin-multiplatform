@@ -3,7 +3,7 @@ target 'ios' do
 	use_frameworks!
 	platform :ios, '16.0'
 	pod 'EncoreKMPBridge', :path => '/Users/ryanlong/Documents/projects/encore-mono/kotlin-multiplatform/iosHelper'
-	pod 'EncoreKit', '~> 1.4'
+	pod 'EncoreKit', '1.4.36'
 end
 
 post_install do |installer|

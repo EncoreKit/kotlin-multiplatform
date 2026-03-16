@@ -2,6 +2,7 @@ package com.encorekit.kmp
 
 import com.encorekit.kmp.models.BillingPurchaseResult
 import com.encorekit.kmp.models.LogLevel
+import com.encorekit.kmp.models.NotGrantedReason
 import com.encorekit.kmp.models.PresentationResult
 import com.encorekit.kmp.models.PurchaseRequest
 import com.encorekit.kmp.models.UserAttributes
@@ -31,9 +32,19 @@ class ModelsTest {
 
     @Test
     fun notGrantedHoldsReason() {
-        val result = PresentationResult.NotGranted(reason = "user_closed")
+        val result = PresentationResult.NotGranted(reason = NotGrantedReason.USER_CLOSED)
         assertIs<PresentationResult.NotGranted>(result)
-        assertEquals("user_closed", result.reason)
+        assertEquals(NotGrantedReason.USER_CLOSED, result.reason)
+        assertEquals("user_closed", result.reason.value)
+    }
+
+    @Test
+    fun notGrantedReasonEnumHasCorrectValues() {
+        assertEquals(4, NotGrantedReason.entries.size)
+        assertEquals("user_closed", NotGrantedReason.USER_CLOSED.value)
+        assertEquals("no_offer_available", NotGrantedReason.NO_OFFERS.value)
+        assertEquals("error", NotGrantedReason.ERROR.value)
+        assertEquals("unknown", NotGrantedReason.UNKNOWN.value)
     }
 
     // -- PurchaseRequest --

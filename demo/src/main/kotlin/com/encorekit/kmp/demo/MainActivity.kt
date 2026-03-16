@@ -85,7 +85,7 @@ private fun DemoScreen() {
                         val result = Encore.placement("demo").show()
                         resultText = when (result) {
                             is PresentationResult.Granted -> "Granted (offer: ${result.offerId})"
-                            is PresentationResult.NotGranted -> "Not granted (${result.reason})"
+                            is PresentationResult.NotGranted -> "Not granted (${result.reason.value})"
                         }
                     } catch (e: Exception) {
                         resultText = "Error: ${e.message}"
