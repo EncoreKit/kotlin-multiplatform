@@ -1,0 +1,12 @@
+platform :ios, '16.0'
+
+target 'EncoreKMPDemo' do
+  use_frameworks!
+
+  # KMP shared module (generates the pod via cocoapods plugin)
+  pod 'shared', :path => '../shared'
+
+  # Local @objc bridge — shared.podspec depends on this by name,
+  # so we must tell CocoaPods where to find it.
+  pod 'EncoreKMPBridge', :path => '../iosHelper'
+end

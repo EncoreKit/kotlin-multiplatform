@@ -5,7 +5,12 @@ plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.kotlinCocoapods)
     alias(libs.plugins.androidLibrary)
+    `maven-publish`
+    signing
 }
+
+group = "com.encorekit"
+version = findProperty("VERSION_NAME") as String
 
 kotlin {
     // Pin language/API version so consumers on Kotlin 1.9+ don't need to upgrade their compiler.
@@ -43,7 +48,7 @@ kotlin {
         // Native iOS SDK — linked as transitive dependency of EncoreKMPBridge.
         // linkOnly skips cinterop (Kotlin code imports EncoreKMPBridge, not EncoreKit directly).
         pod("EncoreKit") {
-            version = "1.4.36"
+            version = libs.versions.encore.ios.get()
             linkOnly = true
         }
 
@@ -78,4 +83,44 @@ android {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
+}
+
+// -- Maven Central Publishing --
+
+publishing {
+    publications.withType<MavenPublication> {
+        pom {
+            name.set("Encore KMP SDK")
+            description.set("Kotlin Multiplatform SDK for Encore — thin bridge to native iOS and Android SDKs")
+            url.set("https://encorekit.com")
+            licenses {
+                license {
+                    name.set("MIT License")
+                    url.set("https://opensource.org/licenses/MIT")
+                }
+            }
+            developers {
+                developer {
+                    id.set("encorekit")
+                    name.set("EncoreKit")
+                    email.set("dev@encorekit.com")
+                }
+            }
+            scm {
+                connection.set("scm:git:git://github.com/EncoreKit/kotlin-multiplatform.git")
+                developerConnection.set("scm:git:ssh://github.com/EncoreKit/kotlin-multiplatform.git")
+                url.set("https://github.com/EncoreKit/kotlin-multiplatform")
+            }
+        }
+    }
+}
+
+signing {
+    val signingKey: String = System.getenv("GPG_SIGNING_KEY").orEmpty()
+    val signingPassword: String = System.getenv("GPG_SIGNING_PASSWORD").orEmpty()
+    isRequired = signingKey.isNotBlank()
+    if (signingKey.isNotBlank()) {
+        useInMemoryPgpKeys(signingKey, signingPassword)
+    }
+    sign(publishing.publications)
 }

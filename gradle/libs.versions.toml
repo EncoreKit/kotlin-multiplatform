@@ -2,7 +2,8 @@
 kotlin = "2.0.21"
 agp = "8.7.3"
 coroutines = "1.8.1"
-encore-android = "1.4.25"
+encore-android = "1.4.27"
+encore-ios = "1.4.39"
 compose-bom = "2024.02.02"
 activity-compose = "1.8.2"
 

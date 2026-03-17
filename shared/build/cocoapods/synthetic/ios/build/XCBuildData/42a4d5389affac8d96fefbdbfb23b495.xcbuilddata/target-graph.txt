@@ -1,4 +1,0 @@
-Target dependency graph (2 targets)
-Target 'EncoreKMPBridge' in project 'Pods'
-➜ Explicit dependency on target 'EncoreKit' in project 'Pods'
-Target 'EncoreKit' in project 'Pods' (no dependencies)

@@ -1,0 +1,41 @@
+name: Bump Native SDK Version
+
+on:
+  workflow_dispatch:
+    inputs:
+      sdk:
+        description: 'Which native SDK to bump (android or ios)'
+        required: true
+        type: choice
+        options:
+          - android
+          - ios
+      version:
+        description: 'New version number (e.g. 1.4.26)'
+        required: true
+        type: string
+
+jobs:
+  bump:
+    name: Bump ${{ inputs.sdk }} SDK to ${{ inputs.version }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Update libs.versions.toml
+        run: |
+          KEY="encore-${{ inputs.sdk }}"
+          sed -i "s/${KEY} = \"[^\"]*\"/${KEY} = \"${{ inputs.version }}\"/" gradle/libs.versions.toml
+          echo "Updated ${KEY} to ${{ inputs.version }}:"
+          grep "${KEY}" gradle/libs.versions.toml
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          title: "Bump ${{ inputs.sdk }} SDK to ${{ inputs.version }}"
+          body: |
+            Automated bump of `encore-${{ inputs.sdk }}` to `${{ inputs.version }}` in `gradle/libs.versions.toml`.
+
+            Both `shared/build.gradle.kts` (Gradle version catalog) and `iosHelper/EncoreKMPBridge.podspec` (Ruby regex) read from this single source of truth.
+          branch: bump-${{ inputs.sdk }}-${{ inputs.version }}
+          commit-message: "Bump ${{ inputs.sdk }} SDK to ${{ inputs.version }}"

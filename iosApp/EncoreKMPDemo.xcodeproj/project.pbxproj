@@ -1,0 +1,286 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5A98AA05973A6AD30F058E0A /* Pods_EncoreKMPDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 262B469E3559DB74ADD33E3C /* Pods_EncoreKMPDemo.framework */; };
+		A1000001 /* EncoreKMPDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000001 /* EncoreKMPDemoApp.swift */; };
+		A1000002 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000002 /* ContentView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		262B469E3559DB74ADD33E3C /* Pods_EncoreKMPDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EncoreKMPDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		93B803B753109DC7A4A919EF /* Pods-EncoreKMPDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EncoreKMPDemo.release.xcconfig"; path = "Target Support Files/Pods-EncoreKMPDemo/Pods-EncoreKMPDemo.release.xcconfig"; sourceTree = "<group>"; };
+		A2000001 /* EncoreKMPDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncoreKMPDemoApp.swift; sourceTree = "<group>"; };
+		A2000002 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A2000003 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A2000010 /* EncoreKMPDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EncoreKMPDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C944F5E809FE053E660A32DB /* Pods-EncoreKMPDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EncoreKMPDemo.debug.xcconfig"; path = "Target Support Files/Pods-EncoreKMPDemo/Pods-EncoreKMPDemo.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A3000001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5A98AA05973A6AD30F058E0A /* Pods_EncoreKMPDemo.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		136F7DCAA7EA1F963E3467D3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				262B469E3559DB74ADD33E3C /* Pods_EncoreKMPDemo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6940823C14B77937BAACE5A6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C944F5E809FE053E660A32DB /* Pods-EncoreKMPDemo.debug.xcconfig */,
+				93B803B753109DC7A4A919EF /* Pods-EncoreKMPDemo.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		A4000001 = {
+			isa = PBXGroup;
+			children = (
+				A4000002 /* . */,
+				A4000003 /* Products */,
+				6940823C14B77937BAACE5A6 /* Pods */,
+				136F7DCAA7EA1F963E3467D3 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		A4000002 /* . */ = {
+			isa = PBXGroup;
+			children = (
+				A2000001 /* EncoreKMPDemoApp.swift */,
+				A2000002 /* ContentView.swift */,
+				A2000003 /* Info.plist */,
+			);
+			path = .;
+			sourceTree = "<group>";
+		};
+		A4000003 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A2000010 /* EncoreKMPDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A5000001 /* EncoreKMPDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A7000003 /* Build configuration list for PBXNativeTarget "EncoreKMPDemo" */;
+			buildPhases = (
+				58F4A3FE26160AFC7388A1B2 /* [CP] Check Pods Manifest.lock */,
+				A6000001 /* Sources */,
+				A3000001 /* Frameworks */,
+				DB7217813C5D4A6E935E52E3 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EncoreKMPDemo;
+			productName = EncoreKMPDemo;
+			productReference = A2000010 /* EncoreKMPDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A8000001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1540;
+				LastUpgradeCheck = 1540;
+			};
+			buildConfigurationList = A7000001 /* Build configuration list for PBXProject "EncoreKMPDemo" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A4000001;
+			productRefGroup = A4000003 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A5000001 /* EncoreKMPDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		58F4A3FE26160AFC7388A1B2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EncoreKMPDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DB7217813C5D4A6E935E52E3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EncoreKMPDemo/Pods-EncoreKMPDemo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EncoreKMPDemo/Pods-EncoreKMPDemo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EncoreKMPDemo/Pods-EncoreKMPDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A6000001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1000001 /* EncoreKMPDemoApp.swift in Sources */,
+				A1000002 /* ContentView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		A9000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		A9000002 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_OPTIMIZATION_LEVEL = s;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A9000003 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C944F5E809FE053E660A32DB /* Pods-EncoreKMPDemo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.encorekit.kmp.demo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A9000004 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 93B803B753109DC7A4A919EF /* Pods-EncoreKMPDemo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.encorekit.kmp.demo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A7000001 /* Build configuration list for PBXProject "EncoreKMPDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A9000001 /* Debug */,
+				A9000002 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A7000003 /* Build configuration list for PBXNativeTarget "EncoreKMPDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A9000003 /* Debug */,
+				A9000004 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A8000001 /* Project object */;
+}

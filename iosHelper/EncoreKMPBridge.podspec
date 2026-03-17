@@ -12,5 +12,12 @@ Pod::Spec.new do |s|
 
   s.source_files = '*.swift'
 
-  s.dependency 'EncoreKit', '1.4.36'
+  # Read iOS SDK version from the Gradle version catalog (single source of truth).
+  # Same pattern as RN (JSON.parse package.json) and Flutter (YAML.safe_load pubspec.yaml).
+  toml = File.read(File.join(__dir__, '..', 'gradle', 'libs.versions.toml'))
+  match = toml.match(/encore-ios\s*=\s*"([^"]+)"/)
+  raise "Could not parse encore-ios version from gradle/libs.versions.toml" unless match
+  ios_version = match[1]
+
+  s.dependency 'EncoreKit', ios_version
 end
