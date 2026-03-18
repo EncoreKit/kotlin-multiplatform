@@ -118,8 +118,13 @@ echo -e "${BLUE}Step 4: Validating version...${NC}"
 CURRENT_WEIGHT=$(( CURRENT_MAJOR * 1000000 + CURRENT_MINOR * 1000 + CURRENT_PATCH ))
 NEW_WEIGHT=$(( NEW_MAJOR * 1000000 + NEW_MINOR * 1000 + NEW_PATCH ))
 
-if [ "$NEW_WEIGHT" -le "$CURRENT_WEIGHT" ]; then
-    echo -e "${RED}New version $NEW_VERSION must be greater than current $CURRENT_VERSION${NC}"
+# Allow same version if tag doesn't exist yet (first publish)
+TAG_EXISTS=$(git tag -l "$NEW_VERSION")
+if [ "$NEW_WEIGHT" -lt "$CURRENT_WEIGHT" ]; then
+    echo -e "${RED}New version $NEW_VERSION must not be less than current $CURRENT_VERSION${NC}"
+    exit 1
+elif [ "$NEW_WEIGHT" -eq "$CURRENT_WEIGHT" ] && [ -n "$TAG_EXISTS" ]; then
+    echo -e "${RED}Version $NEW_VERSION is already tagged. Bump to a new version.${NC}"
     exit 1
 fi
 
@@ -174,24 +179,32 @@ echo ""
 # =============================================================================
 echo -e "${BLUE}Step 8: Updating VERSION_NAME to $NEW_VERSION_NUMBER...${NC}"
 
-sed -i '' "s/^VERSION_NAME=.*/VERSION_NAME=$NEW_VERSION_NUMBER/" "$GRADLE_PROPS"
+if [ "$NEW_VERSION_NUMBER" != "$CURRENT_VERSION_NUMBER" ]; then
+    sed -i '' "s/^VERSION_NAME=.*/VERSION_NAME=$NEW_VERSION_NUMBER/" "$GRADLE_PROPS"
 
-if ! grep -q "^VERSION_NAME=$NEW_VERSION_NUMBER$" "$GRADLE_PROPS"; then
-    echo -e "${RED}Error: Failed to update VERSION_NAME in $GRADLE_PROPS${NC}"
-    exit 1
+    if ! grep -q "^VERSION_NAME=$NEW_VERSION_NUMBER$" "$GRADLE_PROPS"; then
+        echo -e "${RED}Error: Failed to update VERSION_NAME in $GRADLE_PROPS${NC}"
+        exit 1
+    fi
+
+    echo -e "${GREEN}VERSION_NAME updated to $NEW_VERSION_NUMBER${NC}"
+else
+    echo -e "${GREEN}VERSION_NAME already at $NEW_VERSION_NUMBER — no change needed${NC}"
 fi
-
-echo -e "${GREEN}VERSION_NAME updated to $NEW_VERSION_NUMBER${NC}"
 echo ""
 
 # =============================================================================
-# Step 9: Commit version bump, push to origin, tag
+# Step 9: Commit version bump (if changed), push to origin, tag
 # =============================================================================
 echo -e "${BLUE}Step 9: Committing version bump and tagging...${NC}"
 
-git add "$GRADLE_PROPS"
-git commit -m "Bump version to $NEW_VERSION_NUMBER"
-git push origin main
+if [ "$NEW_VERSION_NUMBER" != "$CURRENT_VERSION_NUMBER" ]; then
+    git add "$GRADLE_PROPS"
+    git commit -m "Bump version to $NEW_VERSION_NUMBER"
+    git push origin main
+else
+    echo -e "${GREEN}No version bump commit needed${NC}"
+fi
 
 echo -e "${BLUE}Creating tag $NEW_VERSION...${NC}"
 git tag -a "$NEW_VERSION" -m "Release $NEW_VERSION"
