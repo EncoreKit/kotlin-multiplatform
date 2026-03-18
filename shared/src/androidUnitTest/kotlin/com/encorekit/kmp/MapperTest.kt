@@ -6,7 +6,7 @@ import com.encorekit.kmp.models.PresentationResult
 import com.encorekit.kmp.models.PurchaseRequest
 import com.encorekit.kmp.models.UserAttributes
 import com.encorekit.encore.features.offers.PresentationResult as NativePresentationResult
-import com.encorekit.encore.features.offers.NotGrantedReason as NativeNotGrantedReason
+import com.encorekit.encore.features.offers.DismissReason as NativeDismissReason
 import com.encorekit.encore.core.canonical.iap.PurchaseRequest as NativePurchaseRequest
 import com.encorekit.encore.core.infrastructure.billing.BillingPurchaseResult as NativeBillingResult
 import com.encorekit.encore.core.canonical.user.UserAttributes as NativeUserAttributes
@@ -17,11 +17,11 @@ import kotlin.test.assertNull
 
 class MapperTest {
 
-    // -- PresentationResult: Granted --
+    // -- PresentationResult: Granted (Completed) --
 
     @Test
     fun grantedMapsOfferAndCampaign() {
-        val native = NativePresentationResult.Granted(
+        val native = NativePresentationResult.Completed(
             offerId = "offer_42",
             campaignId = "camp_7",
         )
@@ -33,18 +33,18 @@ class MapperTest {
 
     @Test
     fun grantedMapsNullFields() {
-        val native = NativePresentationResult.Granted(offerId = null, campaignId = null)
+        val native = NativePresentationResult.Completed(offerId = "offer_1", campaignId = null)
         val result = native.toCommon()
         assertIs<PresentationResult.Granted>(result)
-        assertNull(result.offerId)
+        assertEquals("offer_1", result.offerId)
         assertNull(result.campaignId)
     }
 
-    // -- PresentationResult: NotGranted --
+    // -- PresentationResult: NotGranted (Dismissed) --
 
     @Test
     fun notGrantedMapsUserClosed() {
-        val native = NativePresentationResult.NotGranted(reason = NativeNotGrantedReason.USER_CLOSED)
+        val native = NativePresentationResult.Dismissed(reason = NativeDismissReason.USER_CLOSED)
         val result = native.toCommon()
         assertIs<PresentationResult.NotGranted>(result)
         assertEquals(NotGrantedReason.USER_CLOSED, result.reason)
@@ -52,7 +52,7 @@ class MapperTest {
 
     @Test
     fun notGrantedMapsNoOffers() {
-        val native = NativePresentationResult.NotGranted(reason = NativeNotGrantedReason.NO_OFFERS)
+        val native = NativePresentationResult.Dismissed(reason = NativeDismissReason.NO_OFFERS)
         val result = native.toCommon()
         assertIs<PresentationResult.NotGranted>(result)
         assertEquals(NotGrantedReason.NO_OFFERS, result.reason)
@@ -60,10 +60,20 @@ class MapperTest {
 
     @Test
     fun notGrantedMapsError() {
-        val native = NativePresentationResult.NotGranted(reason = NativeNotGrantedReason.ERROR)
+        val native = NativePresentationResult.Dismissed(reason = NativeDismissReason.ERROR)
         val result = native.toCommon()
         assertIs<PresentationResult.NotGranted>(result)
         assertEquals(NotGrantedReason.ERROR, result.reason)
+    }
+
+    // -- PresentationResult: NoOffers --
+
+    @Test
+    fun noOffersMapsToNotGrantedNoOffers() {
+        val native = NativePresentationResult.NoOffers
+        val result = native.toCommon()
+        assertIs<PresentationResult.NotGranted>(result)
+        assertEquals(NotGrantedReason.NO_OFFERS, result.reason)
     }
 
     // -- UserAttributes --

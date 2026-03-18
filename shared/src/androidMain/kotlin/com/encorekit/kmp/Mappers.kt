@@ -7,7 +7,7 @@ import com.encorekit.kmp.models.PresentationResult
 import com.encorekit.kmp.models.PurchaseRequest
 import com.encorekit.kmp.models.UserAttributes
 import com.encorekit.encore.features.offers.PresentationResult as NativePresentationResult
-import com.encorekit.encore.features.offers.DismissReason as NativeNotGrantedReason
+import com.encorekit.encore.features.offers.DismissReason as NativeDismissReason
 import com.encorekit.encore.core.canonical.iap.PurchaseRequest as NativePurchaseRequest
 import com.encorekit.encore.core.infrastructure.billing.BillingPurchaseResult as NativeBillingResult
 import com.encorekit.encore.core.canonical.user.UserAttributes as NativeUserAttributes
@@ -81,9 +81,8 @@ internal fun NativeBillingResult.toCommon(): BillingPurchaseResult = BillingPurc
 
 // -- NotGrantedReason (aliased from native DismissReason until SDK renames) --
 
-internal fun NativeNotGrantedReason.toCommon(): NotGrantedReason = when (this) {
-    NativeNotGrantedReason.USER_CLOSED -> NotGrantedReason.USER_CLOSED
-    NativeNotGrantedReason.NO_OFFERS -> NotGrantedReason.NO_OFFERS
-    NativeNotGrantedReason.ERROR -> NotGrantedReason.ERROR
-    else -> NotGrantedReason.UNKNOWN
+internal fun NativeDismissReason.toCommon(): NotGrantedReason = when (this) {
+    NativeDismissReason.USER_CLOSED -> NotGrantedReason.USER_CLOSED
+    NativeDismissReason.NO_OFFERS -> NotGrantedReason.NO_OFFERS
+    NativeDismissReason.ERROR -> NotGrantedReason.ERROR
 }
