@@ -4,6 +4,9 @@ build/
 */build/
 local.properties
 
+# Release artifacts
+.build/
+
 # IDE
 .idea/
 *.iml
