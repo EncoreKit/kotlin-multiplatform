@@ -116,11 +116,19 @@ publishing {
 }
 
 signing {
-    val signingKey: String = System.getenv("GPG_SIGNING_KEY").orEmpty()
-    val signingPassword: String = System.getenv("GPG_SIGNING_PASSWORD").orEmpty()
-    isRequired = signingKey.isNotBlank()
-    if (signingKey.isNotBlank()) {
-        useInMemoryPgpKeys(signingKey, signingPassword)
+    // CI: env vars (GPG_SIGNING_KEY, GPG_SIGNING_PASSWORD)
+    // Local: ~/.gradle/gradle.properties (signing.key, signing.password, signing.keyId)
+    val envKey: String = System.getenv("GPG_SIGNING_KEY").orEmpty()
+    val envPassword: String = System.getenv("GPG_SIGNING_PASSWORD").orEmpty()
+    val propKey: String = findProperty("signing.key")?.toString().orEmpty()
+    val propPassword: String = findProperty("signing.password")?.toString().orEmpty()
+
+    val key = envKey.ifBlank { propKey }
+    val password = envPassword.ifBlank { propPassword }
+
+    isRequired = key.isNotBlank()
+    if (key.isNotBlank()) {
+        useInMemoryPgpKeys(key, password)
     }
     sign(publishing.publications)
 }
