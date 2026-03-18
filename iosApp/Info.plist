@@ -10,8 +10,12 @@
 	<string>1</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
+	<key>CFBundleExecutable</key>
+	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
+	<key>UILaunchScreen</key>
+	<dict/>
 	<key>EncoreEnvironment</key>
 	<string>local</string>
 </dict>

@@ -21,9 +21,9 @@ struct ContentView: View {
                     DispatchQueue.main.async {
                         if let error = error {
                             resultText = "Error: \(error.localizedDescription)"
-                        } else if let granted = result as? PresentationResultGranted {
+                        } else if let granted = result as? PresentationResult.Granted {
                             resultText = "Granted (offer: \(granted.offerId ?? "nil"))"
-                        } else if let notGranted = result as? PresentationResultNotGranted {
+                        } else if let notGranted = result as? PresentationResult.NotGranted {
                             resultText = "Not granted (\(notGranted.reason.value))"
                         } else {
                             resultText = "Unknown result"

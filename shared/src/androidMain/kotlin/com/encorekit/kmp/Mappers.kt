@@ -79,7 +79,7 @@ internal fun NativeBillingResult.toCommon(): BillingPurchaseResult = BillingPurc
     orderId = orderId,
 )
 
-// -- NotGrantedReason --
+// -- NotGrantedReason (aliased from native DismissReason until SDK renames) --
 
 internal fun NativeDismissReason.toCommon(): NotGrantedReason = when (this) {
     NativeDismissReason.USER_CLOSED -> NotGrantedReason.USER_CLOSED
