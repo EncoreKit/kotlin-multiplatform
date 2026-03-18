@@ -1,0 +1,127 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "url": "../../shared/0.1.0/shared-0.1.0.module",
+    "group": "com.encorekit",
+    "module": "shared",
+    "version": "0.1.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.9"
+    }
+  },
+  "variants": [
+    {
+      "name": "iosX64ApiElements-published",
+      "attributes": {
+        "artifactType": "org.jetbrains.kotlin.klib",
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-api",
+        "org.jetbrains.kotlin.native.target": "ios_x64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.2.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-coroutines-core",
+          "version": {
+            "requires": "1.8.1"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "shared-iosX64Main-0.1.0.klib",
+          "url": "shared-iosx64-0.1.0.klib",
+          "size": 33462,
+          "sha512": "ad6099319eeeaea37dfc8d19d0cf372b21cf967e0b5985f1e4078623713b825a45d87871a230244498d5289bc3622bbaf775ae623fe42926426f14c7848db9b5",
+          "sha256": "4b3c8c6a11bddbd6c78e09a72077b19c6718aff557a5e98ec8df41b31577147a",
+          "sha1": "8d7ed84ad471e5d7ef27fe93c26241a9a42b055e",
+          "md5": "fbc3c26d68409517ba2fd497263becac"
+        },
+        {
+          "name": "shared-iosX64Cinterop-EncoreKMPBridgeMain-0.1.0.klib",
+          "url": "shared-iosx64-0.1.0-cinterop-EncoreKMPBridge.klib",
+          "size": 8188,
+          "sha512": "888db3325269a9f7c005ee2ec27b092a235f111225e191617236dd003d208ecdbb00428f661bcc90108b0a9b2ca4fbc4c415515582bc3ae4cbf513365d56dfbc",
+          "sha256": "442697d029e8b223bed732440b007089fcb9f89f3a497f9f276b34f2f6c316c4",
+          "sha1": "eb50fd03a6fca142550860d09dcb36d378347aac",
+          "md5": "483b050de1152047c819ac01a19b6cd6"
+        }
+      ]
+    },
+    {
+      "name": "iosX64SourcesElements-published",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-runtime",
+        "org.jetbrains.kotlin.native.target": "ios_x64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "files": [
+        {
+          "name": "shared-iosx64-0.1.0-sources.jar",
+          "url": "shared-iosx64-0.1.0-sources.jar",
+          "size": 6684,
+          "sha512": "0d5df23e30d9ad1fa11098f2b7ba41f12c2e4fe6c7c983974a165b5c75b5e88fc485c4f125b8679ba08a28e861cf35a9d3de21a551f021ec4663b064cecd1d12",
+          "sha256": "98d01bd8b5d779d27b5604d916245a2984fd19b8904f07bb43094205534b534c",
+          "sha1": "3434a56c575f3fb5d6e113c41fc410f781058734",
+          "md5": "03498e18267f975bfa90b01d36017e75"
+        }
+      ]
+    },
+    {
+      "name": "iosX64MetadataElements-published",
+      "attributes": {
+        "artifactType": "org.jetbrains.kotlin.klib",
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-metadata",
+        "org.jetbrains.kotlin.native.target": "ios_x64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.2.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-coroutines-core",
+          "version": {
+            "requires": "1.8.1"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "shared-iosx64-0.1.0-metadata.jar",
+          "url": "shared-iosx64-0.1.0-metadata.jar",
+          "size": 20798,
+          "sha512": "a747830931f31041d506848a1976e1bde672965b137892631e2db0383338290eb088e5a79c3644e398939145cecc13c108adb724fa97635c8679070d9ba7bb5f",
+          "sha256": "b80f51db984e1c1ac5a2a599e14acb0d29a720e4115a1b25c903eda947111e1d",
+          "sha1": "319c4170b57778a3b66ad4ffa88a69a0debe44f3",
+          "md5": "2fd82f7e2208bac684fdf2d7ecfc3398"
+        }
+      ]
+    }
+  ]
+}

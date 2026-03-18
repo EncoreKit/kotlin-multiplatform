@@ -8,8 +8,8 @@ SDK_ROOT="$(cd "$SCRIPT_DIR/../.." && pwd)"
 bash "$SCRIPT_DIR/setup-example.sh"
 
 # Build shared framework for iOS
-echo "==> ./gradlew :shared:podInstall"
-cd "$SDK_ROOT" && ./gradlew :shared:podInstall
+echo "==> ./gradlew :encore-kmp:podInstall"
+cd "$SDK_ROOT" && ./gradlew :encore-kmp:podInstall
 
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"

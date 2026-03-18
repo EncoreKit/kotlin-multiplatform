@@ -14,7 +14,7 @@ echo -e "${BLUE}Setting up Encore KMP demo apps...${NC}"
 # iOS: CocoaPods setup
 if [ -d "iosApp" ]; then
     echo -e "${BLUE}Installing CocoaPods for iOS demo...${NC}"
-    ./gradlew :shared:podInstall
+    ./gradlew :encore-kmp:podInstall
     (cd iosApp && pod install)
     echo -e "${GREEN}iOS: Open iosApp/EncoreKMPDemo.xcworkspace in Xcode${NC}"
 fi

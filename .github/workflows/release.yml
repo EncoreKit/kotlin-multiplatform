@@ -18,15 +18,15 @@ jobs:
       - uses: gradle/actions/setup-gradle@v4
 
       - name: Run tests
-        run: ./gradlew :shared:allTests
+        run: ./gradlew :encore-kmp:allTests
 
       - name: Build iOS
         run: |
-          ./gradlew :shared:podInstall
-          ./gradlew :shared:compileKotlinIosSimulatorArm64
+          ./gradlew :encore-kmp:podInstall
+          ./gradlew :encore-kmp:compileKotlinIosSimulatorArm64
 
       - name: Build Maven bundle
-        run: ./gradlew :shared:publishToMavenLocal
+        run: ./gradlew :encore-kmp:publishToMavenLocal
         env:
           GPG_SIGNING_KEY: ${{ secrets.GPG_SIGNING_KEY }}
           GPG_SIGNING_PASSWORD: ${{ secrets.GPG_SIGNING_PASSWORD }}

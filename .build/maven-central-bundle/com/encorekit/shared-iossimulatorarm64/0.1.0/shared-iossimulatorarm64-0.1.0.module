@@ -1,0 +1,127 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "url": "../../shared/0.1.0/shared-0.1.0.module",
+    "group": "com.encorekit",
+    "module": "shared",
+    "version": "0.1.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.9"
+    }
+  },
+  "variants": [
+    {
+      "name": "iosSimulatorArm64ApiElements-published",
+      "attributes": {
+        "artifactType": "org.jetbrains.kotlin.klib",
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-api",
+        "org.jetbrains.kotlin.native.target": "ios_simulator_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.2.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-coroutines-core",
+          "version": {
+            "requires": "1.8.1"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "shared-iosSimulatorArm64Main-0.1.0.klib",
+          "url": "shared-iossimulatorarm64-0.1.0.klib",
+          "size": 33541,
+          "sha512": "abadccbf30903629d176d0b0a5eec5cff9f52abc4e566d08dfb502cb5a9f963e5e71a440b0808299d9caff0db579676e2b9f4b01100ea831d92b3262e22e95c6",
+          "sha256": "143cedc7b1dabedbbfa05e821841d5a4ca4726573374f1eabdd07a43f0cfdffa",
+          "sha1": "74d6a2e2b4394eeae5f8ed6c439bcc8d9ebae9ee",
+          "md5": "ca3633e61af73afd8e1b9940ab1b99c8"
+        },
+        {
+          "name": "shared-iosSimulatorArm64Cinterop-EncoreKMPBridgeMain-0.1.0.klib",
+          "url": "shared-iossimulatorarm64-0.1.0-cinterop-EncoreKMPBridge.klib",
+          "size": 8625,
+          "sha512": "6620e20cc3cceca984cf71fade021390258285375189057e26d80cbeceedc7537c4f18047d2d292222569150878107eda7f512a8a01e5cee83479532e1848745",
+          "sha256": "f80e8f847c098f78b1c1de226bef52a28e41fbd18234a955bc2031c1fa178abc",
+          "sha1": "f8e6464d8bec72c26c84cdf529dc738278f93128",
+          "md5": "daa78b831d8d048e5724e95ad0041615"
+        }
+      ]
+    },
+    {
+      "name": "iosSimulatorArm64SourcesElements-published",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-runtime",
+        "org.jetbrains.kotlin.native.target": "ios_simulator_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "files": [
+        {
+          "name": "shared-iossimulatorarm64-0.1.0-sources.jar",
+          "url": "shared-iossimulatorarm64-0.1.0-sources.jar",
+          "size": 6684,
+          "sha512": "0d5df23e30d9ad1fa11098f2b7ba41f12c2e4fe6c7c983974a165b5c75b5e88fc485c4f125b8679ba08a28e861cf35a9d3de21a551f021ec4663b064cecd1d12",
+          "sha256": "98d01bd8b5d779d27b5604d916245a2984fd19b8904f07bb43094205534b534c",
+          "sha1": "3434a56c575f3fb5d6e113c41fc410f781058734",
+          "md5": "03498e18267f975bfa90b01d36017e75"
+        }
+      ]
+    },
+    {
+      "name": "iosSimulatorArm64MetadataElements-published",
+      "attributes": {
+        "artifactType": "org.jetbrains.kotlin.klib",
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-metadata",
+        "org.jetbrains.kotlin.native.target": "ios_simulator_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.2.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-coroutines-core",
+          "version": {
+            "requires": "1.8.1"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "shared-iossimulatorarm64-0.1.0-metadata.jar",
+          "url": "shared-iossimulatorarm64-0.1.0-metadata.jar",
+          "size": 20798,
+          "sha512": "a747830931f31041d506848a1976e1bde672965b137892631e2db0383338290eb088e5a79c3644e398939145cecc13c108adb724fa97635c8679070d9ba7bb5f",
+          "sha256": "b80f51db984e1c1ac5a2a599e14acb0d29a720e4115a1b25c903eda947111e1d",
+          "sha1": "319c4170b57778a3b66ad4ffa88a69a0debe44f3",
+          "md5": "2fd82f7e2208bac684fdf2d7ecfc3398"
+        }
+      ]
+    }
+  ]
+}

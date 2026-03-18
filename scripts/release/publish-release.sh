@@ -169,7 +169,7 @@ echo ""
 # Step 7: Run tests
 # =============================================================================
 echo -e "${BLUE}Step 7: Running tests...${NC}"
-./gradlew :shared:allTests
+./gradlew :encore-kmp:allTests
 
 echo -e "${GREEN}All tests passed${NC}"
 echo ""
@@ -218,7 +218,7 @@ echo ""
 # =============================================================================
 echo -e "${BLUE}Step 10: Building Maven Central bundle...${NC}"
 
-./gradlew :shared:publishToMavenLocal
+./gradlew :encore-kmp:publishToMavenLocal
 
 MAVEN_LOCAL="$HOME/.m2/repository"
 ARTIFACT_BASE="$MAVEN_LOCAL/com/encorekit"

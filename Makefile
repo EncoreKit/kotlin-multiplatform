@@ -5,10 +5,10 @@ build:
 	./gradlew build
 
 test:
-	./gradlew :shared:allTests
+	./gradlew :encore-kmp:allTests
 
 publish-local:
-	./gradlew :shared:publishToMavenLocal
+	./gradlew :encore-kmp:publishToMavenLocal
 
 clean:
 	./gradlew clean

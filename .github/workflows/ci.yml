@@ -21,12 +21,12 @@ jobs:
           distribution: temurin
           java-version: 17
       - uses: gradle/actions/setup-gradle@v4
-      - run: ./gradlew :shared:allTests
+      - run: ./gradlew :encore-kmp:allTests
       - uses: actions/upload-artifact@v4
         if: failure()
         with:
           name: test-reports
-          path: shared/build/reports/
+          path: shared/build/reports/  # projectDir is still shared/
 
   build-ios:
     name: Build iOS
@@ -38,8 +38,8 @@ jobs:
           distribution: temurin
           java-version: 17
       - uses: gradle/actions/setup-gradle@v4
-      - run: ./gradlew :shared:podInstall
-      - run: ./gradlew :shared:compileKotlinIosSimulatorArm64
+      - run: ./gradlew :encore-kmp:podInstall
+      - run: ./gradlew :encore-kmp:compileKotlinIosSimulatorArm64
 
   build-demo:
     name: Build Android Demo

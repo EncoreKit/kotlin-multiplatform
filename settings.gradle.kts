@@ -15,5 +15,6 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "encore-kmp"
-include(":shared")
+include(":encore-kmp")
+project(":encore-kmp").projectDir = file("shared")
 include(":demo")
