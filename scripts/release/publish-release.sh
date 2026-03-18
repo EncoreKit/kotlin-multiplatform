@@ -218,6 +218,9 @@ echo ""
 # =============================================================================
 echo -e "${BLUE}Step 10: Building Maven Central bundle...${NC}"
 
+# Clean stale artifacts from Maven Local before publishing
+rm -rf "$HOME/.m2/repository/com/encorekit"
+
 ./gradlew :encore-kmp:publishToMavenLocal
 
 MAVEN_LOCAL="$HOME/.m2/repository"

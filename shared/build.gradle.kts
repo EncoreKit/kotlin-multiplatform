@@ -116,19 +116,15 @@ publishing {
 }
 
 signing {
-    // CI: env vars (GPG_SIGNING_KEY, GPG_SIGNING_PASSWORD)
-    // Local: ~/.gradle/gradle.properties (signing.key, signing.password, signing.keyId)
+    // CI: env vars → in-memory PGP
+    // Local: auto-reads signing.keyId, signing.key, signing.password from ~/.gradle/gradle.properties
     val envKey: String = System.getenv("GPG_SIGNING_KEY").orEmpty()
     val envPassword: String = System.getenv("GPG_SIGNING_PASSWORD").orEmpty()
-    val propKey: String = findProperty("signing.key")?.toString().orEmpty()
-    val propPassword: String = findProperty("signing.password")?.toString().orEmpty()
 
-    val key = envKey.ifBlank { propKey }
-    val password = envPassword.ifBlank { propPassword }
-
-    isRequired = key.isNotBlank()
-    if (key.isNotBlank()) {
-        useInMemoryPgpKeys(key, password)
+    if (envKey.isNotBlank()) {
+        useInMemoryPgpKeys(envKey, envPassword)
     }
+
+    isRequired = envKey.isNotBlank() || findProperty("signing.key") != null
     sign(publishing.publications)
 }
