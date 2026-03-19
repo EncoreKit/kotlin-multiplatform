@@ -126,8 +126,9 @@ signing {
     when {
         envKey.isNotBlank() -> useInMemoryPgpKeys(envKey, envPassword)
         propKey != null -> useInMemoryPgpKeys(propKeyId, propKey, propPassword ?: "")
+        propKeyId != null -> useGpgCmd()
     }
 
-    isRequired = envKey.isNotBlank() || propKey != null
+    isRequired = envKey.isNotBlank() || propKey != null || propKeyId != null
     sign(publishing.publications)
 }
