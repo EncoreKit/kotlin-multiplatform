@@ -23,6 +23,7 @@ kotlin {
     }
 
     androidTarget {
+        publishLibraryVariants("release")
         compilations.all {
             compilerOptions.configure {
                 jvmTarget.set(JvmTarget.JVM_17)
