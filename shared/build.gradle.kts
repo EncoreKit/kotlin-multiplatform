@@ -39,7 +39,7 @@ kotlin {
         summary = "Encore KMP SDK"
         homepage = "https://encorekit.com"
         version = "0.1.0"
-        ios.deploymentTarget = "16.0"
+        ios.deploymentTarget = "15.0"
 
         framework {
             baseName = "EncoreKMP"

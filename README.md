@@ -75,7 +75,7 @@ The iOS target requires CocoaPods. The `EncoreKMPBridge` pod (included in `iosHe
 ### iOS
 
 - **CocoaPods**: The KMP cocoapods plugin generates a pod from the `shared` module
-- **Deployment Target**: iOS 16.0
+- **Deployment Target**: iOS 15.0
 - **Bridge**: `iosHelper/EncoreKMPBridge.swift` provides `@objc` wrappers for cinterop
 
 ## API Reference
